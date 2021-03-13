@@ -38,15 +38,15 @@ def generate_image(text: str) -> BytesIO:
     with Image.open("./static/ahb.png") as img:
         wrapped = textwrap.wrap(text, 20)
 
-        set_back = sum(12 for _ in text) if len(
+        set_back = sum(6 for _ in text) if len(
             wrapped) == 1 else sum(3.5 for _ in text)
         up_amount = sum(25 for _ in wrapped)
         coords = (700 - set_back, 300 - up_amount)
 
-        font = ImageFont.truetype("./static/JetBrainsMono-Regular.ttf", 36)
+        font = ImageFont.truetype("./static/Roboto-Medium.ttf", 36)
         draw = ImageDraw.Draw(img)
 
-        draw.text(coords, "\n".join(wrapped), (255, 255, 255), font=font)
+        draw.text(coords, "\n".join(wrapped), (232, 230, 227), font=font)
 
         buffer = BytesIO()
         img.save(buffer, "png")
