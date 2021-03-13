@@ -41,11 +41,11 @@ def generate_image(text: str) -> BytesIO:
         font = ImageFont.truetype("./static/Roboto-Medium.ttf", 36)
         draw = ImageDraw.Draw(img)
 
-        cur_height, pad = 200, 5
+        cur_height, pad = 300, 5
         for line in wrapped:
             w, h = draw.textsize(line, font=font)
             draw.text(((img.width - w) / 2, cur_height), line, font=font)
-            cur_height += h + pad
+            cur_height -= h + pad
 
         buffer = BytesIO()
         img.save(buffer, "png")
