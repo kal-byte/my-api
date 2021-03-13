@@ -38,8 +38,6 @@ def generate_image(text: str) -> BytesIO:
     with Image.open("./static/ahb.png") as img:
         wrapped = textwrap.wrap(text, 20)
 
-        # coords = (700 - set_back, 300 - up_amount)
-
         font = ImageFont.truetype("./static/Roboto-Medium.ttf", 36)
         draw = ImageDraw.Draw(img)
 
