@@ -31,19 +31,19 @@ app.include_router(v1.router, prefix="/v1")
 
 ref = {
     "/v1/oil": {
-        "params": ["Optional: intensity", "Optional: radius"],
+        "params": ["Optional: intensity - float", "Optional: radius - int"],
         "returns": "image/png"
     },
     "/v1/facetime": {
-        "params": ["first_image", "second_image"],
+        "params": ["first_image - url", "second_image - url"],
         "returns": "image/png"
     },
     "/v1/invert": {
-        "params": ["image"],
+        "params": ["image - url"],
         "returns": "image/png"
     },
     "/v1/alwayshasbeen": {
-        "params": ["text"],
+        "params": ["text - string"],
         "returns": "image/png"
     }
 }
