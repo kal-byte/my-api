@@ -54,6 +54,6 @@ async def index():
     base = ""
 
     for key, value in ref.items():
-        base += f"{key} - Params: {','.join(value['params'])} - Returns: {value['returns']}\n"
+        base += f"{key} - Params: {', '.join(value['params'])} - Returns: {value['returns']}\n"
 
     return base
