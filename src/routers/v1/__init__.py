@@ -25,7 +25,7 @@ from fastapi import APIRouter
 
 
 path = pathlib.Path("./routers/v1/endpoints")
-end_points = [str(x)[21:-3] for x in path.glob("[!_]*.py")]
+end_points = [x.name[:-3] for x in path.glob("[!_]*.py")]
 
 
 router = APIRouter()
