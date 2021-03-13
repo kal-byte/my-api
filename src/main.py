@@ -28,6 +28,31 @@ app = FastAPI()
 app.include_router(v1.router, prefix="/v1")
 
 
+ref = {
+    "/v1/oil": {
+        "params": ["Optional: intensity", "Optional: radius"],
+        "returns": "image/png"
+    },
+    "/v1/facetime": {
+        "params": ["first_image", "second_image"],
+        "returns": "image/png"
+    },
+    "/v1/invert": {
+        "params": ["image"],
+        "returns": "image/png"
+    },
+    "/v1/alwayshasbeen": {
+        "params": ["text"],
+        "returns": "image/png"
+    }
+}
+
+
 @app.get("/")
 async def index():
-    return {"Hello": "world."}
+    base = ""
+
+    for key, value in ref.items():
+        base += f"{key} - Params: {','.join(value['params'])} - Returns: {value['returns']}"
+
+    return base
