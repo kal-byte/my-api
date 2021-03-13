@@ -49,7 +49,7 @@ ref = {
 }
 
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def index():
     base = ""
 
