@@ -22,7 +22,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from routers import v1
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi.responses import PlainTextResponse
 
 
 app = FastAPI()
@@ -49,20 +49,11 @@ ref = {
 }
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/", response_class=PlainTextResponse)
 async def index():
     base = ""
 
     for key, value in ref.items():
         base += f"{key} - Params: {','.join(value['params'])} - Returns: {value['returns']}\n"
 
-    return f"""
-    <html>
-        <head>
-            <title>Hello.</title>
-        </head>
-        <body>
-            <p>{base}</p>
-        </body>
-    </html>
-    """
+    return base
