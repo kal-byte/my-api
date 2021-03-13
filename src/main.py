@@ -20,8 +20,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-from fastapi import FastAPI
 from routers import v1
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 
 
 app = FastAPI()
@@ -53,6 +54,15 @@ async def index():
     base = ""
 
     for key, value in ref.items():
-        base += f"{key} - Params: {','.join(value['params'])} - Returns: {value['returns']}"
+        base += f"{key} - Params: {','.join(value['params'])} - Returns: {value['returns']}\n"
 
-    return base
+    return f"""
+    <html>
+        <head>
+            <title>Hello.</title>
+        </head>
+        <body>
+            <p>{base}</p>
+        </body>
+    </html>
+    """
