@@ -30,7 +30,7 @@ from fastapi.responses import StreamingResponse, JSONResponse
 router = APIRouter()
 
 
-@utils.in_executor
+@utils.to_thread
 def generate_image(image: bytes) -> BytesIO:
     """The backend code that generates the inverted effect for the image."""
     image = polaroid.Image(image)

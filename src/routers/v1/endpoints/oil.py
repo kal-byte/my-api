@@ -30,7 +30,7 @@ from fastapi.responses import StreamingResponse, JSONResponse
 router = APIRouter()
 
 
-@utils.in_executor
+@utils.to_thread
 def generate_image(image: bytes, radius: int, intensity: float) -> BytesIO:
     """The backend code that generates the oil'd effect for the image."""
     image = polaroid.Image(image)

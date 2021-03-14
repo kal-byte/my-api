@@ -32,7 +32,7 @@ router = APIRouter()
 default_text = "You should consider putting in some actual text."
 
 
-@utils.in_executor
+@utils.to_thread
 def generate_image(text: str) -> BytesIO:
     """Backend code that generates the image to make the "Always Has Been" meme."""
     with Image.open("./static/ahb.png") as img:

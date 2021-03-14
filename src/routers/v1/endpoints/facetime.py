@@ -30,7 +30,7 @@ from fastapi.responses import StreamingResponse, JSONResponse
 router = APIRouter()
 
 
-@utils.in_executor
+@utils.to_thread
 def generate_image(first_image: bytes, second_image: bytes) -> BytesIO:
     """Backend code that generates the image that provides the facetime effect."""
     img_one = polaroid.Image(first_image)
