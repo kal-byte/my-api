@@ -35,7 +35,7 @@ ref = {
         "returns": "image/png"
     },
     "/v1/facetime": {
-        "params": ["first_image - url", "second_image - url"],
+        "params": ["first - url", "second - url"],
         "returns": "image/png"
     },
     "/v1/invert": {
