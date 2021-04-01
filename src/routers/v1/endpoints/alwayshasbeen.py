@@ -42,7 +42,7 @@ def generate_image(text: str) -> BytesIO:
         draw = ImageDraw.Draw(img)
 
         cur_height, pad = 300, 5
-        for line in wrapped:
+        for line in reversed(wrapped):
             w, h = draw.textsize(line, font=font)
             draw.text(((img.width - w) / 2, cur_height), line, font=font)
             cur_height -= h + pad
